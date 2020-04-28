@@ -2,7 +2,7 @@ FROM heroku/heroku:18-build
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
-  libheif-dev
+  libheif-dev libjpeg-dev libpng-dev libtiff-dev libgif-dev
 
 RUN curl -L https://github.com/strukturag/libde265/releases/download/v1.0.5/libde265-1.0.5.tar.gz | tar zx \
   && cd libde265-1.0.5 \
@@ -33,7 +33,8 @@ RUN cd /usr/src/ \
   && make install
 
 RUN cp /usr/local/lib/libde265.so.0 /usr/src/imagemagick/lib \
-  && cp /usr/local/lib/libheif.so.1 /usr/src/imagemagick/lib
+  && cp /usr/local/lib/libheif.so.1 /usr/src/imagemagick/lib \
+  && cp /usr/local/lib/libwebp.so /usr/src/imagemagick/lib
 
 # clean the build area ready for packaging
 RUN cd /usr/src/imagemagick \
