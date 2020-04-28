@@ -18,6 +18,12 @@ RUN curl -L https://github.com/strukturag/libheif/releases/download/v1.6.2/libhe
   && make \
   && make install
 
+RUN curl -L http://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.1.0.tar.gz | tar zx \
+  && cd libwebp-1.1.0 \
+  && ./configure \
+  && make \
+  && make install
+
 RUN cd /usr/src/ \
   && wget https://imagemagick.org/download/releases/ImageMagick-7.0.10-9.tar.gz \
   && tar xf ImageMagick-7.0.10-9.tar.gz \
