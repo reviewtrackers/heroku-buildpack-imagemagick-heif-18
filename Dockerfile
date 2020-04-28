@@ -4,23 +4,23 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
   libheif-dev
 
-RUN curl -L https://github.com/strukturag/libde265/releases/download/v1.0.3/libde265-1.0.3.tar.gz | tar zx \
-  && cd libde265-1.0.3 \
+RUN curl -L https://github.com/strukturag/libde265/releases/download/v1.0.5/libde265-1.0.5.tar.gz | tar zx \
+  && cd libde265-1.0.5 \
   && ./autogen.sh \
   && ./configure \
   && make \
   && make install
 
-RUN curl -L https://github.com/strukturag/libheif/releases/download/v1.3.2/libheif-1.3.2.tar.gz | tar zx \
-  && cd libheif-1.3.2 \
+RUN curl -L https://github.com/strukturag/libheif/releases/download/v1.6.2/libheif-1.6.2.tar.gz | tar zx \
+  && cd libheif-1.6.2 \
   && ./autogen.sh \
   && ./configure \
   && make \
   && make install
 
 RUN cd /usr/src/ \
-  && wget https://imagemagick.org/download/releases/ImageMagick-7.0.8-53.tar.gz \
-  && tar xf ImageMagick-7.0.8-53.tar.gz \
+  && wget https://imagemagick.org/download/releases/ImageMagick-7.0.10-9.tar.gz \
+  && tar xf ImageMagick-7.0.10-9.tar.gz \
   && cd ImageMagick-7* \
   && ./configure --with-heic=yes --prefix=/usr/src/imagemagick \
   && make \
