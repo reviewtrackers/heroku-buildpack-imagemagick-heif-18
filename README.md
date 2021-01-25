@@ -10,7 +10,7 @@ This one works with [Heroku stack](https://devcenter.heroku.com/articles/stack) 
 Add this buildpack to your app:
 
 ```
-https://github.com/epicatization/heroku-buildpack-imagemagick-heif
+https://github.com/reviewtrackers/heroku-buildpack-imagemagick-heif-18
 ```
 
 ## Build script
